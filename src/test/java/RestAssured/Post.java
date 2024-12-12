@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Post {
-	
+	@Test
 	public void api()
 	{
 		
@@ -29,11 +29,11 @@ public class Post {
 	when().
 	  post("/users").
 	then().
-	  statusCode(201).log().all();
+	  statusCode(200).log().all();
 	
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "api")
 	public void post()
 	{
 		JSONObject json = new JSONObject();
